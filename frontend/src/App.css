@@ -1329,3 +1329,488 @@ z-index: 1000;
 .cancel-budget-button:hover {
   background: #f4f7fa;
 }
+
+
+/* DAY 4 - PROJECT MANAGEMENT FORM */
+
+.project-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 25px 0;
+}
+
+.add-project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: #102a43;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-project-button:hover {
+  background: #16a6a0;
+}
+
+.project-success-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #e8f7ef;
+  color: #16845b;
+  border: 1px solid #b9e5cc;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+.project-success-message button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.project-form-section {
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.project-form-heading {
+  margin-bottom: 25px;
+}
+
+.project-form-heading h2 {
+  color: #102a43;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.project-form-heading p {
+  color: #68798a;
+  font-size: 14px;
+}
+
+.project-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-form-field label {
+  color: #102a43;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.project-form-field input,
+.project-form-field select,
+.project-form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d6e0e7;
+  border-radius: 8px;
+  padding: 12px;
+  color: #202b3c;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.project-form-field input:focus,
+.project-form-field select:focus,
+.project-form-field textarea:focus {
+  border-color: #16a6a0;
+  box-shadow: 0 0 0 3px rgba(22, 166, 160, 0.12);
+}
+
+.project-description-field {
+  grid-column: 1 / -1;
+}
+
+.project-form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.project-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.cancel-project-button {
+  background: #ffffff;
+  color: #102a43;
+  border: 1px solid #d6e0e7;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-project-button:hover {
+  background: #f4f7fa;
+}
+
+.project-budget {
+  color: #102a43;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+
+/* DAY 4 - PROJECT DETAILS AND ORGANISATION */
+
+.project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.project-card-top .project-card-icon {
+  margin-bottom: 0;
+}
+
+.project-card .project-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #edf2f7;
+  color: #102a43;
+}
+
+.project-card .status-planned {
+  background: #fff4db;
+  color: #9a6700;
+}
+
+.project-card .status-ongoing {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.project-card .status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.project-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #68798a;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+.project-description {
+  color: #526477;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 48px;
+  margin-bottom: 20px;
+}
+
+.project-information {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  border-top: 1px solid #e5ebf0;
+  border-bottom: 1px solid #e5ebf0;
+  padding: 18px 0;
+}
+
+.project-information div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.project-information span {
+  color: #68798a;
+  font-size: 12px;
+}
+
+.project-information strong {
+  color: #102a43;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.project-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.project-timeline div {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #526477;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.project-timeline svg {
+  flex-shrink: 0;
+  color: #16a6a0;
+}
+
+
+/* DAY 4 - PROJECT SUMMARY DASHBOARD */
+
+.project-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.project-summary-card {
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.project-summary-card span {
+  display: block;
+  color: #68798a;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.project-summary-card h2 {
+  color: #102a43;
+  font-size: 25px;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.project-summary-card p {
+  color: #68798a;
+  font-size: 12px;
+}
+
+/* DAY 4 - PROJECT TIMELINE STATUS */
+
+.project-timeline-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 12px;
+  background: #f4f7fa;
+  border-radius: 8px;
+}
+
+.project-timeline-status span {
+  color: #526477;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.project-timeline-status strong {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.timeline-not-started {
+  background: #fff4db;
+  color: #9a6700;
+}
+
+.timeline-in-progress {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.timeline-overdue {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.timeline-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* PROJECT STATUS BREAKDOWN */
+
+.project-status-breakdown {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 10px;
+  color: #526477;
+  font-size: 14px;
+}
+
+.project-status-breakdown span {
+  font-weight: 700;
+  color: #102a43;
+}
+
+.project-status-breakdown strong {
+  font-weight: 600;
+}
+
+
+/* DAY 4 - PROJECT SEARCH AND FILTERS */
+
+.project-filter-section {
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 25px 0;
+}
+
+.project-filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #102a43;
+  margin-bottom: 18px;
+}
+
+.project-filter-heading h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.project-filter-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.project-filter-grid select,
+.project-search input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #ffffff;
+  color: #202b3c;
+  font-size: 13px;
+  outline: none;
+}
+
+.project-filter-grid select:focus,
+.project-search input:focus {
+  border-color: #16a6a0;
+}
+
+.project-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  color: #68798a;
+}
+
+.project-search input {
+  border: none;
+  padding: 0;
+}
+
+.project-search input:focus {
+  border: none;
+}
+
+.clear-project-filters {
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #16a6a0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #087f7a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-project-filters:hover {
+  background: #e6f7f6;
+}
+
+.projects-results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0 18px;
+}
+
+.projects-results-heading h2 {
+  color: #102a43;
+  font-size: 20px;
+}
+
+.projects-results-heading span {
+  color: #68798a;
+  font-size: 13px;
+}
+
+.no-projects-message {
+  grid-column: 1 / -1;
+  padding: 45px 20px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e5ebf0;
+  border-radius: 12px;
+  color: #68798a;
+}
+
+.no-projects-message h3 {
+  color: #102a43;
+  margin: 12px 0 8px;
+}
+
+.no-projects-message p {
+  margin-bottom: 18px;
+}
