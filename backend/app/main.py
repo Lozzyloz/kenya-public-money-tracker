@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from app.api import health
+from app.api import counties, health
 
 app = FastAPI(title="Kenya Public Money Tracker API", version="0.1.0")
 app.include_router(health.router, prefix="/api/v1")
+app.include_router(counties.router, prefix="/api/v1")
