@@ -14,8 +14,10 @@ import { Link, Routes, Route } from "react-router-dom";
 import Budgets from "./pages/Budgets";
 import Projects from "./pages/Projects";
 import Reports from "./pages/Reports";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import SubmitReport from "./pages/SubmitReport";
+import Register from "./pages/Register";
 
 import "./App.css";
 
@@ -245,12 +247,12 @@ function App() {
         </nav>
 
         <div className="nav-actions">
-          <button className="login-btn">
+          <Link to="/login" className="login-btn">
             Sign In
-          </button>
+          </Link>
 
-          <Link to="/reports" className="report-btn">
-            Report an Issue
+          <Link to="/register" className="report-btn">
+            Create Account
           </Link>
         </div>
 
@@ -269,9 +271,13 @@ function App() {
 
         <Route path="/submit-report" element={<SubmitReport />} />
 
+        <Route path="/login" element={<Login />} />
+
         <Route path="/reports" element={<Reports />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="*"

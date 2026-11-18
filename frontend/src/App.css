@@ -2338,3 +2338,268 @@ z-index: 1000;
     width: 100%;
   }
 }
+
+
+/* DAY 6 - USER REGISTRATION PAGE */
+
+.auth-page {
+  min-height: 100vh;
+  padding: 45px 20px;
+  background: #f4f7fa;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.auth-intro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-logo {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #102a43;
+  color: #ffffff;
+}
+
+.auth-intro h1 {
+  margin: 12px 0;
+  color: #102a43;
+  font-size: 30px;
+}
+
+.auth-intro p {
+  max-width: 490px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.auth-form {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(16, 42, 67, 0.06);
+}
+
+.auth-form h2 {
+  margin: 0 0 8px;
+  color: #102a43;
+  font-size: 21px;
+}
+
+.auth-form-description {
+  margin-bottom: 25px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.auth-field {
+  margin-bottom: 19px;
+}
+
+.auth-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.auth-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #64748b;
+}
+
+.auth-input-wrapper:focus-within {
+  border-color: #16a6a0;
+  box-shadow: 0 0 0 3px rgba(22, 166, 160, 0.12);
+}
+
+.auth-input-wrapper input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #202b3c;
+  font: inherit;
+  font-size: 14px;
+}
+
+.auth-input-wrapper input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #202b3c;
+  font-size: 14px;
+}
+
+.auth-field select:focus {
+  outline: none;
+  border-color: #16a6a0;
+}
+
+.auth-password-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.auth-password-toggle:hover {
+  color: #102a43;
+}
+
+.auth-field small {
+  display: block;
+  margin-top: 7px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.auth-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auth-privacy input {
+  margin-top: 3px;
+  accent-color: #16a6a0;
+}
+
+.auth-submit-button {
+  width: 100%;
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #102a43;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-submit-button:hover {
+  background: #1b496b;
+}
+
+.auth-error,
+.auth-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 13px;
+  margin-bottom: 17px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.auth-error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.auth-success {
+  background: #eaf7ef;
+  color: #18734b;
+}
+
+.auth-footer {
+  margin-top: 23px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.auth-footer a {
+  color: #168c88;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-security-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* DAY 6 - USER ROLES AND ACCOUNT ACCESS */
+
+.role-information {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  margin: 5px 0 22px;
+  border: 1px solid #d5e5ed;
+  border-radius: 9px;
+  background: #f4f7fa;
+  color: #102a43;
+}
+
+.role-information svg {
+  flex-shrink: 0;
+  color: #16a6a0;
+}
+
+.role-information strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.role-information p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
