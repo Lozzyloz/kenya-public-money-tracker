@@ -47,14 +47,14 @@ def test_me_requires_token(client):
 
 
 def test_me_returns_profile_without_password(client, auth_header):
-    data = client.get("/api/v1/auth/me", headers=auth_header("reviewer")).json()
-    assert data["email"] == "reviewer@example.com"
-    assert data["role"] == "reviewer"
+    data = client.get("/api/v1/auth/me", headers=auth_header("auditor_reviewer")).json()
+    assert data["email"] == "auditor_reviewer@example.com"
+    assert data["role"] == "auditor_reviewer"
     assert "password_hash" not in data and "password" not in data
 
 
 def test_tampered_token_rejected(client, auth_header):
-    token = auth_header("admin")["Authorization"]
+    token = auth_header("administrator")["Authorization"]
     response = client.get(
         "/api/v1/auth/me", headers={"Authorization": token[:-3] + "abc"}
     )
@@ -77,12 +77,12 @@ def test_expired_token_rejected(client, create_user):
 def test_admin_can_create_user(client, auth_header):
     response = client.post(
         "/api/v1/users",
-        headers=auth_header("admin"),
+        headers=auth_header("administrator"),
         json={
             "email": "New.Reviewer@example.com",
             "password": "a-long-passphrase-1",
             "full_name": "New Reviewer",
-            "role": "reviewer",
+            "role": "auditor_reviewer",
         },
     )
     assert response.status_code == 201
@@ -91,7 +91,7 @@ def test_admin_can_create_user(client, auth_header):
 
 
 def test_reviewer_cannot_manage_users(client, auth_header):
-    headers = auth_header("reviewer")
+    headers = auth_header("auditor_reviewer")
     assert client.get("/api/v1/users", headers=headers).status_code == 403
 
 
@@ -100,12 +100,12 @@ def test_anonymous_cannot_list_users(client):
 
 
 def test_duplicate_email_conflict(client, auth_header):
-    headers = auth_header("admin")
+    headers = auth_header("administrator")
     payload = {
-        "email": "admin@example.com",
+        "email": "administrator@example.com",
         "password": "a-long-passphrase-1",
         "full_name": "Duplicate",
-        "role": "reviewer",
+        "role": "auditor_reviewer",
     }
     assert client.post("/api/v1/users", headers=headers, json=payload).status_code == 409
 
@@ -113,7 +113,7 @@ def test_duplicate_email_conflict(client, auth_header):
 def test_short_password_rejected(client, auth_header):
     response = client.post(
         "/api/v1/users",
-        headers=auth_header("admin"),
+        headers=auth_header("administrator"),
         json={"email": "x@example.com", "password": "short",
               "full_name": "X", "role": "citizen"},
     )

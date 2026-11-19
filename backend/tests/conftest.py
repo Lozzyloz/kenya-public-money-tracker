@@ -39,7 +39,7 @@ def client(db):
 
 @pytest.fixture
 def create_user(db):
-    def _create(email="admin@example.com", role="admin", active=True):
+    def _create(email="admin@example.com", role="administrator", active=True):
         user = User(
             email=email,
             password_hash=hash_password(PASSWORD),
@@ -56,7 +56,7 @@ def create_user(db):
 
 @pytest.fixture
 def auth_header(client, create_user):
-    def _header(role="admin"):
+    def _header(role="administrator"):
         email = f"{role}@example.com"
         create_user(email=email, role=role)
         response = client.post(

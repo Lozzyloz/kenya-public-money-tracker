@@ -5,6 +5,7 @@ import sys
 from sqlalchemy import select
 
 from app.core.database import SessionLocal
+from app.core.roles import ALL_ROLES
 from app.core.security import hash_password
 from app.models import User
 
@@ -14,7 +15,7 @@ def main() -> None:
     parser.add_argument("email")
     parser.add_argument("full_name")
     parser.add_argument(
-        "--role", choices=["admin", "reviewer", "citizen"], default="admin"
+        "--role", choices=list(ALL_ROLES), default="administrator"
     )
     args = parser.parse_args()
 

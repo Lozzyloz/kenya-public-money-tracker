@@ -4,12 +4,15 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import require_roles
 from app.core.database import get_db
+from app.core.roles import STAFF_ADMIN
 from app.core.security import hash_password
 from app.models import User
 from app.schemas.user import UserCreate, UserOut
 
 router = APIRouter(
-    prefix="/users", tags=["users"], dependencies=[Depends(require_roles("admin"))]
+    prefix="/users",
+    tags=["users"],
+    dependencies=[Depends(require_roles(*STAFF_ADMIN))],
 )
 
 
