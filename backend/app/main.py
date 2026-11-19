@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import auth, counties, finance, health, projects, users
+from app.api import auth, counties, finance, health, projects, sectors, users
 from app.core.config import settings
 
 app = FastAPI(title="Kenya Public Money Tracker API", version="0.1.0")
@@ -13,5 +13,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-for module in (health, auth, users, counties, projects, finance):
+for module in (health, auth, users, counties, sectors, projects, finance):
     app.include_router(module.router, prefix="/api/v1")
