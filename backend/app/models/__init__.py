@@ -3,10 +3,11 @@ from app.models.base import Base
 from app.models.contractor import Contractor
 from app.models.county import County
 from app.models.document import Document
+from app.models.finance import Budget, Expenditure
 from app.models.project import Project
 from app.models.sector import Sector
 
 __all__ = [
-    "Agency", "Base", "Contractor", "County",
-    "Document", "Project", "Sector",
+    "Agency", "Base", "Budget", "Contractor", "County",
+    "Document", "Expenditure", "Project", "Sector",
 ]
