@@ -14,6 +14,10 @@ import { Link, Routes, Route } from "react-router-dom";
 import Budgets from "./pages/Budgets";
 import Projects from "./pages/Projects";
 import Reports from "./pages/Reports";
+import { useState } from "react";
+import { hasPermission } from "./auth/roles";
+import type { UserRole } from "./auth/roles";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import SubmitReport from "./pages/SubmitReport";
@@ -220,6 +224,7 @@ function HomePage() {
 }
 
 function App() {
+  const [currentUserRole, setCurrentUserRole] = useState<UserRole | null>(null);
   return (
     <div className="app">
 
@@ -235,26 +240,71 @@ function App() {
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">
-          <Link to="/#about">About</Link>
+  <Link to="/#about">About</Link>
 
-          <Link to="/dashboard">Dashboard</Link>
+  <Link to="/dashboard">Dashboard</Link>
 
-          <Link to="/budgets">Public Budgets</Link>
+  {hasPermission(
+    currentUserRole ?? "citizen",
+    "view_public_information"
+  ) && (
+    <>
+      <Link to="/budgets">Public Budgets</Link>
+      <Link to="/projects">Projects</Link>
+    </>
+  )}
 
-          <Link to="/projects">Projects</Link>
+  {currentUserRole &&
+    hasPermission(currentUserRole, "submit_reports") && (
+      <Link to="/submit-report">Submit a Report</Link>
+    )}
 
-          <Link to="/reports">Citizen Reports</Link>
-        </nav>
+  {currentUserRole &&
+    hasPermission(currentUserRole, "review_citizen_reports") && (
+      <Link to="/reports">Citizen Reports</Link>
+    )}
+</nav>
 
-        <div className="nav-actions">
-          <Link to="/login" className="login-btn">
-            Sign In
-          </Link>
+       <div className="nav-actions">
+  <div className="demo-role-switcher">
+    <label htmlFor="demo-role">Development demo role</label>
 
-          <Link to="/register" className="report-btn">
-            Create Account
-          </Link>
-        </div>
+    <select
+      id="demo-role"
+      value={currentUserRole ?? ""}
+      onChange={(event) =>
+        setCurrentUserRole(
+          event.target.value
+            ? (event.target.value as UserRole)
+            : null
+        )
+      }
+    >
+      <option value="">Signed out</option>
+      <option value="citizen">Citizen</option>
+      <option value="journalist_researcher">
+        Journalist / Researcher
+      </option>
+      <option value="government_officer">
+        Government Officer
+      </option>
+      <option value="auditor_reviewer">
+        Auditor / Reviewer
+      </option>
+      <option value="administrator">Administrator</option>
+    </select>
+
+    <small>Testing only — not real authentication</small>
+  </div>
+
+  <Link to="/login" className="login-btn">
+    Sign In
+  </Link>
+
+  <Link to="/register" className="report-btn">
+    Create Account
+  </Link>
+</div>
 
         <button className="mobile-menu" aria-label="Open menu">
           <Menu />
@@ -273,7 +323,17 @@ function App() {
 
         <Route path="/login" element={<Login />} />
 
-        <Route path="/reports" element={<Reports />} />
+        <Route
+  path="/reports"
+  element={
+    <ProtectedRoute
+      role={currentUserRole}
+      permission="review_citizen_reports"
+    >
+      <Reports />
+    </ProtectedRoute>
+  }
+/>
 
         <Route path="/dashboard" element={<Dashboard />} />
 

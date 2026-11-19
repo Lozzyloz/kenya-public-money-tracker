@@ -2603,3 +2603,32 @@ z-index: 1000;
   font-size: 12px;
   line-height: 1.6;
 }
+
+/* DEVELOPMENT ROLE SELECTOR */
+.demo-role-switcher {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 170px;
+}
+
+.demo-role-switcher label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #102A43;
+}
+
+.demo-role-switcher select {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #202B3C;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.demo-role-switcher small {
+  font-size: 10px;
+  color: #B7791F;
+}
