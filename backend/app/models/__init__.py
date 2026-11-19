@@ -6,8 +6,9 @@ from app.models.document import Document
 from app.models.finance import Budget, Expenditure
 from app.models.project import Project
 from app.models.sector import Sector
+from app.models.user import User
 
 __all__ = [
     "Agency", "Base", "Budget", "Contractor", "County",
-    "Document", "Expenditure", "Project", "Sector",
+    "Document", "Expenditure", "Project", "Sector", "User",
 ]
