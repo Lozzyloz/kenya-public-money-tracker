@@ -1,4 +1,5 @@
 from app.models.agency import Agency
+from app.models.audit import AuditLog
 from app.models.base import Base
 from app.models.contractor import Contractor
 from app.models.county import County
@@ -9,6 +10,6 @@ from app.models.sector import Sector
 from app.models.user import User
 
 __all__ = [
-    "Agency", "Base", "Budget", "Contractor", "County",
+    "Agency", "AuditLog", "Base", "Budget", "Contractor", "County",
     "Document", "Expenditure", "Project", "Sector", "User",
 ]

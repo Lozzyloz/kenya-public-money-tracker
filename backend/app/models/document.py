@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from sqlalchemy import CheckConstraint, String, Text, func
+from sqlalchemy import CheckConstraint, ForeignKey, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
@@ -30,3 +30,4 @@ class Document(Base):
     period_label: Mapped[str | None] = mapped_column(String(50))
     published_date: Mapped[date | None]
     recorded_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    recorded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"))

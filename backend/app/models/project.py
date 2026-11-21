@@ -57,6 +57,7 @@ class Project(TimestampMixin, Base):
     verification_status: Mapped[str] = mapped_column(String(20))
     source_document_id: Mapped[int] = mapped_column(ForeignKey("documents.id"))
     is_archived: Mapped[bool] = mapped_column(Boolean, default=False)
+    recorded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
 
     county: Mapped[County] = relationship()
     sector: Mapped[Sector | None] = relationship()

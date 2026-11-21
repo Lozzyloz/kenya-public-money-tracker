@@ -41,6 +41,7 @@ class Budget(Base):
     supersedes_id: Mapped[int | None] = mapped_column(ForeignKey("budgets.id"))
     notes: Mapped[str | None] = mapped_column(Text)
     recorded_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    recorded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
 
     source_document: Mapped[Document] = relationship()
 
@@ -69,5 +70,6 @@ class Expenditure(Base):
     verification_status: Mapped[str] = mapped_column(String(20))
     notes: Mapped[str | None] = mapped_column(Text)
     recorded_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    recorded_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
 
     source_document: Mapped[Document] = relationship()
