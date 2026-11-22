@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import (
     audit, auth, counties, documents, finance, health,
-    projects, reference, sectors, users,
+    progress, projects, reference, sectors, users,
 )
 from app.core.config import settings
 
@@ -18,6 +18,6 @@ app.add_middleware(
 
 for module in (
     health, auth, users, counties, sectors, reference,
-    documents, projects, finance, audit,
+    documents, projects, finance, progress, audit,
 ):
     app.include_router(module.router, prefix="/api/v1")
