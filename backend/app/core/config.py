@@ -8,6 +8,13 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     cors_origins: list[str] = ["http://localhost:5173"]
 
+    upload_dir: str = "uploads"
+    # Only enable behind a proxy you control (Nginx, Cloudflare); otherwise
+    # clients could spoof their IP address with a header.
+    trust_proxy_headers: bool = False
+    report_rate_limit: int = 10
+    report_rate_window_seconds: int = 3600
+
     model_config = SettingsConfigDict(env_file=".env")
 
 

@@ -65,3 +65,13 @@ def auth_header(client, create_user):
         return {"Authorization": f"Bearer {response.json()['access_token']}"}
 
     return _header
+
+
+@pytest.fixture(autouse=True)
+def isolated_uploads_and_limits(tmp_path, monkeypatch):
+    from app.core import ratelimit
+
+    monkeypatch.setattr(settings, "upload_dir", str(tmp_path / "uploads"))
+    ratelimit.reset_all()
+    yield
+    ratelimit.reset_all()

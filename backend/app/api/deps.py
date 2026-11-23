@@ -7,6 +7,7 @@ from app.core.security import decode_access_token
 from app.models import User
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
+oauth2_optional = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login", auto_error=False)
 
 
 def get_current_user(
@@ -24,6 +25,19 @@ def get_current_user(
     if user is None or not user.is_active:
         raise error
     return user
+
+
+def get_optional_user(
+    token: str | None = Depends(oauth2_optional), db: Session = Depends(get_db)
+) -> User | None:
+    """For public endpoints: a bad or missing token means anonymous, not an error."""
+    if not token:
+        return None
+    user_id = decode_access_token(token)
+    if user_id is None:
+        return None
+    user = db.get(User, user_id)
+    return user if user is not None and user.is_active else None
 
 
 def require_roles(*roles: str):

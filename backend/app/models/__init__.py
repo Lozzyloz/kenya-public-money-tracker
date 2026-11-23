@@ -7,11 +7,12 @@ from app.models.document import Document
 from app.models.finance import Budget, Expenditure
 from app.models.progress import Milestone, ProgressUpdate
 from app.models.project import Project
+from app.models.report import CitizenReport, ReportAttachment, ReportStatusHistory
 from app.models.sector import Sector
 from app.models.user import User
 
 __all__ = [
-    "Agency", "AuditLog", "Base", "Budget", "Contractor", "County",
-    "Document", "Expenditure", "Milestone", "ProgressUpdate",
-    "Project", "Sector", "User",
+    "Agency", "AuditLog", "Base", "Budget", "CitizenReport", "Contractor",
+    "County", "Document", "Expenditure", "Milestone", "ProgressUpdate",
+    "Project", "ReportAttachment", "ReportStatusHistory", "Sector", "User",
 ]
