@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import (
-    audit, auth, counties, documents, finance, health,
+    audit, auth, counties, dashboard, documents, finance, health,
     progress, projects, reference, reports, sectors, users,
 )
 from app.core.config import settings
@@ -18,6 +18,6 @@ app.add_middleware(
 
 for module in (
     health, auth, users, counties, sectors, reference,
-    documents, projects, finance, progress, reports, audit,
+    documents, projects, finance, progress, reports, dashboard, audit,
 ):
     app.include_router(module.router, prefix="/api/v1")
