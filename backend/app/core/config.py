@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     report_rate_limit: int = 10
     report_rate_window_seconds: int = 3600
 
+    login_fail_limit_email: int = 5
+    login_fail_limit_ip: int = 30
+    login_window_seconds: int = 900
+
     model_config = SettingsConfigDict(env_file=".env")
 
 
